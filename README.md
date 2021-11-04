@@ -13,4 +13,4 @@ major and minor issues. If the copy to clipbaord is checked, well, that should b
 
 The clear button clears the text and unchecks all of the criterion. 
 
-[Demo](https://github.com/edutainly/A3Grading/blob/main/FA21A3Checkin.html)
+[Demo](FA21A3Checkin.html)
