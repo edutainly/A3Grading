@@ -30,7 +30,7 @@ function genDoc(){
     genMaC("OOP: Your code somewhat resembles Fortran in Java. Encapsulate object properties and behavior inside of the objects.");
     genMaC("OOP: You have too much behavior in your controller, e.g., GameWorld that should be distributed to other objects.");
     genMaC("OOP: Instead of querying an object's properties via a getter, embed the behavior in the object.");
-    genMaC("OOP: The Helicopter does not need an ArrayList of all Fire objects. You have unnecessarily coupled the Helicopter with the collection of Fires. Since this is only a parameter to your init method, you cannot add more fires to the game without recreating your helicopter object or resetting the collection via another setter.");
+    genMaC("OOP: The Helicopter does not need an ArrayList of all Fire objects. You have unnecessarily coupled the Helicopter with the collection of Fires.");
 
     genTopic("HornetsHFD Specific");
     genMaC("HornetsHFD: You should not nest the non-hierarchical GameObject classes.")
