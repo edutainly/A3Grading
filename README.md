@@ -12,3 +12,5 @@ Choose all grading issues that apply and press the copy button for a quick and d
 major and minor issues. If the copy to clipbaord is checked, well, that should be self explanatory. 
 
 The clear button clears the text and unchecks all of the criterion. 
+
+[Demo](https://github.com/edutainly/A3Grading/blob/main/FA21A3Checkin.html)
