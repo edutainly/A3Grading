@@ -227,6 +227,8 @@ function copyAll(){
         addComment("-----------------------------------------------\n");
         copyAllForSelector(noSelector);
     }
+    const cmtBox = document.getElementById("commentBox");
+    navigator.clipboard.writeText(cmtBox.value);
 };
 
 //`````````````````````````````````````````````````````````````````````````````
