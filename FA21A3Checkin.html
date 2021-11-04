@@ -95,7 +95,11 @@ function genDoc(){
 //`````````````````````````````````````````````````````````````````````````````
 // gen functions
 //
-function genCopyButton(){genButton("copyAll",  "control", "Copy all comments", "copyAll");};
+function genCopyButton(){
+    genButton("copyAll",  "control", "Copy all comments", "copyAll");
+    genCheckBox("copytocb", "control", "Copy to Clipboard");
+};
+
 function genClearButton(){genButton("clearAll", "control", "Clear all comments", "clearAll");};
 
 function genTitle(title) {genH2(title); genHR();};
@@ -155,6 +159,19 @@ function createCriterion(id, name, labelText){
     document.body.appendChild(document.createElement('br'));
     document.body.appendChild(label);
 };
+
+function genCheckBox(id, name, labelText){
+    const label         = document.createElement("label");
+    const checkbox      = document.createElement("input");
+    checkbox.type       = "checkbox";
+    checkbox.id         = id;
+    checkbox.name       = name;
+    checkbox.value      = labelText;
+    const textContent = document.createTextNode(labelText);
+    label.appendChild(checkbox);
+    label.appendChild(textContent);
+    document.body.appendChild(label);
+}
 
 //`````````````````````````````````````````````````````````````````````````````
 function clearAll(){
@@ -227,8 +244,11 @@ function copyAll(){
         addComment("-----------------------------------------------\n");
         copyAllForSelector(noSelector);
     }
+    const clipCb = document.getElementById("copytocb");
     const cmtBox = document.getElementById("commentBox");
-    navigator.clipboard.writeText(cmtBox.value);
+    if(clipCb.checked){
+        navigator.clipboard.writeText(cmtBox.value);
+    }
 };
 
 //`````````````````````````````````````````````````````````````````````````````
