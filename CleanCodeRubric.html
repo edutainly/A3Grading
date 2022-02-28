@@ -307,7 +307,7 @@ function copyAll(){
 
     addComment("\nYour submission met " + 
         (maIssues==0 ? "All" : pcntMe((maTotal-maIssues)/maTotal)) + " of the major requirements for clean code and \n" +
-        (miIssues==0 ? "All" : pcntMe((miTotal/miIssues)/miTotal)) + " of the minor requirements for clean code, details below \n");
+        (miIssues==0 ? "All" : pcntMe((miTotal-miIssues)/miTotal)) + " of the minor requirements for clean code, details below \n");
     
     if(maIssues>0){
         addComment("\nYour submission violated the following major " + pluralMe("requirement",maIssues) + ":\n");
