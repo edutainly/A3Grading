@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <style>
+        h1{ padding: 0; margin: 0;}
+        h2{ padding: 0; margin: 0;}
+        h3{ padding: 0; margin: 0;}
+        h4{ padding: 0; margin: 0;}
+    </style>
+</head>
+<body onload="genDoc()"><script>
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// construct document
+//
+function genDoc(){
+    // This is the A1 Check-in Rubric for GO
+    //
+    // Here I need comments and major/minor criteria I think, let's start with comments
+    // on required topics and then move on from there. 
+    //
+
+    genTitle("Grading criteria for A1b");
+    genTopic("Criteria for Running Application [Choose All that Apply]");
+    genMaC("Game runs starts and stops as required");
+    genMiC("All graphics objects are defined as expected and in the right place");
+    genMiC("All animation is runs as expected with the exception of occasional flashing");
+    genMiC("Game ends in win after fires are put out and helicopter lands on pad");
+    genMiC("Game ends in loss after running out of fuel");
+    genMiC("Three fire objects are in the right place");
+    genMiC("Growing fires remain centered");
+    genMiC("Fires shrink when water is dumped on them");
+    genMiC("Fires display size next to them");
+    genMiC("Fire size disappears when fire is extinguished");
+    genMiC("Water increases by 100 at a time");
+    genMiC("Water drops to zero when dropped on a fire");
+    genMiC("Fuel appears to drop at a rate that increases with square of speed");
+    genMiC("Fuel drops when helicopter is not moving");
+    genMiC("Helicopter displays heading and water");
+    genMiC("Helicopter changes heading by 15% at a time");
+    genMiC("Helicopter moves in the direction of its heading");
+    genMiC("Helicopter can speed up, slow down, and stop");
+    genNoC("Dialog box is displayed on win or loss");
+    genNoC("Dialog box allows player to restart game");
+    genNoC("Game restart properly resets the game with new fire locations");
+
+    genHR();    
+    genTopic("General Code Quality [Choose All that Apply]");
+    genNoC("OOP: SERIOUS:   Your code somewhat resembles Fortran in Java. Encapsulate object properties and behavior inside of the objects.");
+    genNoC("OOP: MODERATE:  Too many conditionals in places. Try to think more in terms of function.");
+    genNoC("OOP: MODERATE:  Please read the prompt carefully, watch the code-along videos. and adapt your style to a proper object oriented approach.");
+    genNoC("OOP: SERIOUS:   You have more setters than are necessary, focus more on object behavior.");
+    genNoC("OOP: MODERATE:  You have more getters than are necessary, focus more on object behavior.");
+    genNoC("OOP: SERIOUS:   Do not model plural objects, e.g., Fires or Buildings, as a singular object, e.g. Fire or Building, and then use procedural code to determine which. This is a key violation of OOP principles.")
+    genNoC("OOP: SERIOUS:   Your fires are not stored in a collection as required in the spec");
+    genNoC("HornetsHFD: SERIOUS Helicopter should manage its own speed and or water levels. These are behaviors of the helicopter");
+
+    genTopic("Project Formatting [Choose All that Apply]");
+    genNoC("Formatting: You should not submit copy-pasted code from my examples to your code check-in.");
+    genNoC("Formatting: Before submission you should remove (meta) comments to yourself that you use to help you write the code. It's fine to leave in (meta) comments directed at the instructional staff. ");
+    genNoC("Formatting: You should remove unwanted code prior to submission.");
+    genNoC("Formatting: Remove debug code prior to submission.");
+    genNoC("Formatting: Use more whitespace for increased readability.");
+
+    genTopic("General Comments [Choose All that Apply]");
+    genNoC("Note: Don't worry about file renaming, I know that it does that.");
+    genNoC("CN1: Your code includes unnecessary boilerplate from the old CN1 startup code, do not include this.")
+    genNoC("CN1: Use the iPad skin as required. This will be a graded criteria moving forward.");
+    genNoC("Note: Really nice job!");
+
+    genHR();    
+    genTopic("Clean Code [Choose One]");
+    genE("Code highly respects the principles of clean code!");
+    genM("Code moderately respects the principles of clean code");
+    genR("Code does not readily reflect the principles of clean code");
+
+    genTopic("Code Style [Choose One]");
+    genE("Written in a clean and readable style with adequate but not excessive use of white space");
+    genM("Is reasonably clean but could use some improvement");
+    genR("Needs significant work on style");
+    
+    genTopic("OOP Principles [Choose One]");
+    genE("Cannot contain any serious violation of OOP principles discussed and presented so far.");
+    genM("Few violations of DRY (Don't Repeate Yourself) and SRP (Single Responsibility Principle)");
+    genR("Little effort is made to avoid repeating code or decomposing repeating work into methods");
+
+    genTopic("Member Variables [Choose One]");
+    genM("Java : All member variables are private");
+    genR("Java : Not all member variables are private as required and as demonstrated in the Code-Alongs");
+
+    genTopic("Bugs [Choose One]");
+    genE("Must be reasonably devoid of any major run-time errors");
+    genM("At most minor errors");
+    genR("More serious defects are present");
+
+    genTopic("80 Column Limit [Choose One]");
+    genE("Does not violate the 80 column limit, at all!");
+    genM("Formatting: Code respects the 80 column limit with at most one violation");
+    genR("Formatting: 80 column limit please!");
+
+    genHR();    
+    genTopic("Timeliness [Choose One]");
+    genE("Must be on time, you may not use any of the late window.");
+    genM("May use late window");
+
+    genTopic("Git log and progress [Choose One]");
+    genE("Git log shows regular commits over time with meaningful commit messages that document project development progress");
+    genM("Git log reflects at least some activity and shows commit comments, timestamps, and git hashes");
+    genR("Some required git log elements are missing or very little attention is payed to git log");
+
+    genTopic("Basic submission issues [Choose One]");
+    genNoC("E:: All submitted components are of the correct form and none is missing");
+    genNoC("R:: There are some issues with at least one component of the submission");
+    
+    //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    // Generate the buttons and textbox
+    //
+    genHR();
+    genBR();
+    genCopyButton();    
+    genBR();
+    genBR();
+    genCommentBox();
+    genBR();
+    genClearButton();
+    genHR();
+};
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+//`````````````````````````````````````````````````````````````````````````````
+// gen functions
+//
+function genCopyButton(){
+    genButton("copyAll",  "control", "Copy all comments", "copyAll");
+    genCheckBox("copytocb", "control", "Copy to Clipboard");
+};
+
+function genClearButton(){genButton("clearAll", "control", "Clear all comments", "clearAll");};
+
+function genTitle(title) {genH2(title); genHR();};
+function genTopic(topic){genBR();genBR();genH3(topic);};
+function genBR(){document.body.appendChild(document.createElement('br'));};
+function genHR(){document.body.appendChild(document.createElement('hr'));};
+
+function genH(n,text){
+    var h = document.createElement('h'+n);
+    h.appendChild(document.createTextNode(text));
+    document.body.appendChild(h);
+};
+
+function genH1(text){genH(1,text);};
+function genH2(text){genH(2,text);};
+function genH3(text){genH(3,text);};
+function genH4(text){genH(4,text);};
+
+var idCount=0;
+function genMaC(labelText){createCriterion("M"+idCount++, "Mcriteria", labelText);};
+function genMiC(labelText){createCriterion("m"+idCount++, "mcriteria", labelText);};
+function genNoC(labelText){createCriterion("n"+idCount++, "ncriteria", labelText);};
+
+function genE(labelText){createCriterion("EX"+idCount++, "EXcriteria", labelText);}
+function genM(labelText){createCriterion("ME"+idCount++, "MEcriteria", labelText);}
+function genR(labelText){createCriterion("RE"+idCount++, "REcriteria", labelText);}
+function genF(labelText){createCriterion("FA"+idCount++, "FAcriteria", labelText);}
+
+//`````````````````````````````````````````````````````````````````````````````
+// genRubric generates a rubric item
+//
+// qNum     : is the question number in text
+// qPoints  : is the integer number of points for the question
+// qTitle   : is the question title
+// cA       : is the text for the A choice (100%)
+// cC       : is the text for the C choice (75%)
+// cF       : is the text for the F choice (50%)
+// cZ       : is the text for the Z choice (0%)
+//
+const qPointsMap = new Map();
+
+function genRubric(qNum, qPoints, qTitle, cA, cC,cF){
+    // generate the header
+    qHeader = qNum + " :: " + qTitle + " " + "["+ qPoints + " Points]";
+    genTopic(qHeader);
+    genRubricItem(qNum,qPoints,cA,cC,cF);
+    qPointsMap.set(qNum,qPoints);
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function genRubricItem(qNum, qPoints,cA,cC, cF){
+    cZ = "Missing, too little to grade, or completely incorrect";    
+    cZ = "No Marks";
+    createRadioButton(qNum+"-cA", qNum, "Full Marks :: " + cA);
+    if(cC != "N/A")
+        createRadioButton(qNum+"-cC", qNum, "Some Marks :: " + cC);
+
+    if(cF != "N/A")        
+        createRadioButton(qNum+"-cF", qNum, "Low Marks :: " + cF);
+    createRadioButton(qNum+"-cZ", qNum, cZ);
+}   
+
+//`````````````````````````````````````````````````````````````````````````````
+// for a radio button the name is the group name so we call it multiple times
+// with the same group name
+//
+function createRadioButton(id, name, labelText){    
+    const label         = document.createElement("label");
+    const radioButton   = document.createElement("input");
+    radioButton.type    = "radio";
+    radioButton.id      = id;
+    radioButton.name    = name;
+    radioButton.value   = labelText;
+    const textContent = document.createTextNode(labelText);
+    label.appendChild(radioButton);
+    label.appendChild(textContent);
+    document.body.appendChild(document.createElement('br'));
+    document.body.appendChild(label);
+};
+
+
+//`````````````````````````````````````````````````````````````````````````````
+function genCommentBox(){
+    const cmtForm           = document.createElement('form');
+    const cmtTextBox        = document.createElement('textarea');
+    cmtTextBox.id           = "commentBox";
+    cmtTextBox.rows         = 20;
+    cmtTextBox.cols         = 80;
+    cmtTextBox.name         = "text";
+    cmtTextBox.placeholder  = "Select comments, press the copy button, and then add your own";
+    cmtForm.appendChild(cmtTextBox);
+    document.body.appendChild(cmtForm);
+}
+
+
+//`````````````````````````````````````````````````````````````````````````````
+function genButton(id,name,text,onclick){
+    const btn = document.createElement('button');
+    btn.id          = id;
+    btn.name        = name;
+    btn.innerHTML   = text;
+    btn.setAttribute("onclick", "javascript:"+ onclick +"();");//     = onclick;
+    document.body.appendChild(btn);
+} 
+
+//`````````````````````````````````````````````````````````````````````````````
+function createCriterion(id, name, labelText){    
+    const label         = document.createElement("label");
+    const checkbox      = document.createElement("input");
+    checkbox.type       = "checkbox";
+    checkbox.id         = id;
+    checkbox.name       = name;
+    checkbox.value      = labelText;
+    const textContent = document.createTextNode(labelText);
+    label.appendChild(checkbox);
+    label.appendChild(textContent);
+    document.body.appendChild(document.createElement('br'));
+    document.body.appendChild(label);
+};
+
+function genCheckBox(id, name, labelText){
+    const label         = document.createElement("label");
+    const checkbox      = document.createElement("input");
+    checkbox.type       = "checkbox";
+    checkbox.id         = id;
+    checkbox.name       = name;
+    checkbox.value      = labelText;
+    const textContent = document.createTextNode(labelText);
+    label.appendChild(checkbox);
+    label.appendChild(textContent);
+    document.body.appendChild(label);
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function clearAll(){
+    check(false);
+    document.getElementById("commentBox").value = "";
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function addComment(comment){
+    const cmtBox = document.getElementById("commentBox");
+    cmtBox.value = cmtBox.value + comment;            
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function copyAllForSelector(cbs){
+    const cmtBox = document.getElementById("commentBox");
+    cbs.forEach((cb) => {
+        if(cb.checked){
+            cmtBox.value = cmtBox.value + "-" + cb.value + "\n";
+        }
+    })   
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function copyUnCheckedForSelector(cbs){
+    const cmtBox = document.getElementById("commentBox");
+    cbs.forEach((cb) => {
+        if(!cb.checked){
+            cmtBox.value = cmtBox.value + "-" + cb.value + "\n";
+        }
+    })   
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function queryCountForSelector(sel){
+    var count=0;
+    sel.forEach((cb) => {
+        if(cb.checked){
+            count++;
+        }
+    })
+    //alert(count);
+    return count;
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function queryTotalForSelector(sel){
+    var count=0;
+    sel.forEach((cb) => {
+        count++;
+    })
+    //alert(count);
+    return count;
+}
+
+
+function pluralMe(text, n){
+    return n==1 ? text : text+"s";
+}
+
+function pcntMe(n){
+    return Math.round(n*100) + "%";
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function copyAll(){
+    document.getElementById("commentBox").value = "";
+
+    //`````````````````````````````````````````
+    // copy all details of comments
+    const maSelector = document.querySelectorAll('input[name="Mcriteria"]')
+    const miSelector = document.querySelectorAll('input[name="mcriteria"]');
+    const noSelector = document.querySelectorAll('input[name="ncriteria"]');
+
+    const maIssues = queryCountForSelector(maSelector);
+    const miIssues = queryCountForSelector(miSelector);
+    const noIssues = queryCountForSelector(noSelector);
+
+    const maTotal = queryTotalForSelector(maSelector);
+    const miTotal = queryTotalForSelector(miSelector);
+    const noTotal = queryTotalForSelector(noSelector);
+
+    const EXSelector = document.querySelectorAll('input[name="EXcriteria"]')
+    const MESelector = document.querySelectorAll('input[name="MEcriteria"]')
+    const RESelector = document.querySelectorAll('input[name="REcriteria"]')
+    const FASelector = document.querySelectorAll('input[name="FAcriteria"]')
+
+ 
+    const EXIssues = queryCountForSelector(EXSelector);
+    const MEIssues = queryCountForSelector(MESelector);
+    const REIssues = queryCountForSelector(RESelector);
+    const FAIssues = queryCountForSelector(FASelector);
+ 
+    const EXtotal = queryTotalForSelector(EXSelector);
+    const MEtotal = queryTotalForSelector(MESelector);
+    const REtotal = queryTotalForSelector(RESelector);
+    const FAtotal = queryTotalForSelector(FASelector);
+
+
+    addComment("\nYour submission met " + 
+        (maIssues==0 ? "none" : pcntMe(maIssues/maTotal)) + " of the major requirements for a running application and \n" +
+        (miIssues==0 ? "none" : pcntMe(miIssues/miTotal)) + " of the minor requirements for a running application and \n" +
+        (EXIssues==0 ? "none" : pcntMe(EXIssues/EXtotal)) + " of the requirements for exceeds expecations and \n" +
+        (MEIssues==0 ? "none" : pcntMe(MEIssues/MEtotal)) + " of the requirements for meets expecations and \n" +
+        (REIssues==0 ? "none" : pcntMe(REIssues/REtotal)) + " of the requirements for needs revision, details below.\n");
+    
+    if(maIssues>0){
+        addComment("\nYour submission met the following major " + pluralMe("requirement",maIssues) + ":\n");
+        addComment("------------------------------------------\n");
+        copyAllForSelector(maSelector);
+        addComment("\n");
+    }
+
+    if(maIssues<maTotal){
+        addComment("\nYour submission failed to meet the following major " + pluralMe("requirement",(maTotal-maIssues)) + ":\n");
+        addComment("------------------------------------------\n");
+        copyUnCheckedForSelector(maSelector);
+        addComment("\n");
+
+    }
+
+    if(miIssues){
+        addComment("\nYour submission met  the following minor " + pluralMe("requirement",miIssues) + ":\n");
+        addComment("-----------------------------------------------\n");
+        copyAllForSelector(miSelector);
+    }
+
+    if(miIssues<miTotal){
+        addComment("\nYour submission failed to meet the following minor " + pluralMe("requirement",(miTotal-miIssues)) + ":\n");
+        addComment("------------------------------------------\n");
+        copyUnCheckedForSelector(miSelector);
+        addComment("\n");
+
+    }
+
+    if(EXIssues){
+        addComment("\n----------------------------------------------------------\n");
+        addComment("Your submission exemplified the following " + pluralMe("characteristic",EXIssues) + 
+                 "\nof a submission that exceeds expectations\n");
+        addComment("----------------------------------------------------------\n");
+        copyAllForSelector(EXSelector);
+    }
+
+    if(MEIssues){
+        addComment("\n----------------------------------------------------------\n");
+        addComment("Your submission exemplified the following " + pluralMe("characteristic",MEIssues) + 
+                 "\nof a submission that meets expectations\n");
+        addComment("----------------------------------------------------------\n");
+        copyAllForSelector(MESelector);        
+    }
+    if(REIssues){
+        addComment("\n----------------------------------------------------------\n");
+        addComment("Your submission exemplified the following " + pluralMe("characteristic",REIssues) + 
+                 "\nof a submission that requires revision\n");
+        addComment("----------------------------------------------------------\n");
+        copyAllForSelector(RESelector);                
+    }
+
+    if(FAIssues){
+        addComment("\n----------------------------------------------------------\n");
+        addComment("Your submission exemplified the following " + pluralMe("characteristic",FAIssues) + 
+                 "\nof a submission that is fragmented\n");
+        addComment("----------------------------------------------------------\n");
+        copyAllForSelector(FASelector);                
+    }
+
+    if(EXtotal>0){
+        //addComment(EXtotal);
+        //addComment(MEtotal);
+        addComment("\n\n----------------------------------------------------------");
+        if(EXIssues/EXtotal > 0.7 && MEIssues/MEtotal > 0.6 && FAIssues==0){
+            addComment("\nYour submission meets the criteria required for a grade of Exceeding Expectations");
+        }
+        else if(MEIssues/MEtotal> 0.6 && FAIssues==0){
+            addComment("\nYour submission meets the criteria required for a grade of Meeting Expectations");
+        }
+        else if(MEIssues/MEtotal < 0.6 && MEIssues/MEtotal > 0.4 && FAIssues < 2){
+            addComment("\nYour submission meets the criteria required for a grade of Needs Revision");
+        }
+        else{
+            addComment("\nYour submission meets the criteria required for a grade of Fragmented");
+        }
+        addComment("\n----------------------------------------------------------\n");
+    }
+
+    if(noIssues){
+        addComment("\nThe following notes apply to your submission, some of these are requirements that are not being strictly enforced for this submission:\n");
+        addComment("-----------------------------------------------\n");
+        copyAllForSelector(noSelector);
+    }
+
+
+
+    const clipCb = document.getElementById("copytocb");
+    const cmtBox = document.getElementById("commentBox");
+    if(clipCb.checked){
+        navigator.clipboard.writeText(cmtBox.value);
+    }
+};
+
+//`````````````````````````````````````````````````````````````````````````````
+function checkForSelector(checked=true, cbs){
+    cbs.forEach((cb) => {
+        cb.checked = checked;
+    })   
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function check(checked = true) {
+    checkForSelector(checked,document.querySelectorAll('input[name="mcriteria"]'));
+    checkForSelector(checked,document.querySelectorAll('input[name="Mcriteria"]'));
+    checkForSelector(checked,document.querySelectorAll('input[name="ncriteria"]'));
+};
+
+</script></body></html>
