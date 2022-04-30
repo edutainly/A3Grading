@@ -28,7 +28,9 @@ function genDoc(){
     genMiC("All animation is runs as expected with the exception of occasional flashing");
     genMiC("Game ends in win after fires are put out and helicopter lands on pad");
     genMiC("Game ends in loss after running out of fuel");
-    genMiC("Three fire objects are in the right place");
+    genMiC("Game ends in loss after all buildings are destroyed");
+    genMiC("Three building objects are in the right place");
+    genMiC("Fire objects are in the buildings");
     genMiC("Growing fires remain centered");
     genMiC("Fires shrink when water is dumped on them");
     genMiC("Fires display size next to them");
@@ -39,6 +41,10 @@ function genDoc(){
     genMiC("Fuel drops when helicopter is not moving");
     genMiC("Helicopter displays heading and water");
     genMiC("Helicopter changes heading by 15% at a time");
+    genMiC("Glass cockpit displays changing parameters correctly");
+    genMiC("Glass cockpit is organized cleanly with labels over the top of changing values.");
+    genMiC("Buttons work correcty");
+    genMiC("Buidlings show building damage as fires grow.");
     genMiC("Helicopter moves in the direction of its heading");
     genMiC("Helicopter can speed up, slow down, and stop");
     genNoC("Dialog box is displayed on win or loss");
@@ -47,14 +53,16 @@ function genDoc(){
 
     genHR();    
     genTopic("General Code Quality [Choose All that Apply]");
-    genNoC("OOP: SERIOUS:   Your code somewhat resembles Fortran in Java. Encapsulate object properties and behavior inside of the objects.");
-    genNoC("OOP: MODERATE:  Too many conditionals in places. Try to think more in terms of function.");
-    genNoC("OOP: MODERATE:  Please read the prompt carefully, watch the code-along videos. and adapt your style to a proper object oriented approach.");
-    genNoC("OOP: SERIOUS:   You have more setters than are necessary, focus more on object behavior.");
-    genNoC("OOP: MODERATE:  You have more getters than are necessary, focus more on object behavior.");
-    genNoC("OOP: SERIOUS:   Do not model plural objects, e.g., Fires or Buildings, as a singular object, e.g. Fire or Building, and then use procedural code to determine which. This is a key violation of OOP principles.")
-    genNoC("OOP: SERIOUS:   Your fires are not stored in a collection as required in the spec");
-    genNoC("HornetsHFD: SERIOUS Helicopter should manage its own speed and or water levels. These are behaviors of the helicopter");
+    genMaC("OOP: SERIOUS:   Your code is not corretly organized into package.");
+    genMaC("OOP: SERIOUS:   Your code somewhat resembles Fortran in Java. Encapsulate object properties and behavior inside of the objects.");
+    genMaC("OOP: MODERATE:  Too many conditionals in places. Try to think more in terms of function.");
+    genMiC("OOP: MODERATE:  Please read the prompt carefully, watch the code-along videos. and adapt your style to a proper object oriented approach.");
+    genMaC("OOP: SERIOUS:   You have more setters than are necessary, focus more on object behavior.");
+    genMiC("OOP: MODERATE:  You have more getters than are necessary, focus more on object behavior.");
+    genMaC("OOP: SERIOUS:   Do not model plural objects, e.g., Fires or Buildings, as a singular object, e.g. Fire or Building, and then use procedural code to determine which. This is a key violation of OOP principles.")
+    genMaC("OOP: SERIOUS:   Your fires are not stored in a collection as required in the spec");
+    genNoC("OOP: MODERATE:  Some design patterns are not correctly implemented.");
+    genMaC("HornetsHFD: SERIOUS Helicopter should manage its own speed and or water levels. These are behaviors of the helicopter");
 
     genTopic("Project Formatting [Choose All that Apply]");
     genNoC("Formatting: You should not submit copy-pasted code from my examples to your code check-in.");
