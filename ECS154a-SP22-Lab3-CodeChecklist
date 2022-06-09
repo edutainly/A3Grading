@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://edutainly.github.io/A3Grading/FA21A3Checkin.html -->
+<html class="  ext-strict"><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <style>
+        h1{ padding: 0; margin: 0;}
+        h2{ padding: 0; margin: 0;}
+        h3{ padding: 0; margin: 0;}
+        h4{ padding: 0; margin: 0;}
+    </style>
+</head>
+<body onload="genDoc()" class=" ext-webkit ext-chrome" id="syno-nsc-ext-gen3"><script>
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// construct document
+//
+function genDoc(){
+    genTitle("Grading Checklist for Lab 3 - Memory Lab - Code Submission");
+    
+    //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    // topics and criterion follow
+    //
+
+    genTopic("Requirements");
+    genMaC("Requirements: Code has solutions for both 8.9 and 8.10.");
+    genMaC("Requirements: Code is written in one of Python, Java, C/C++.");
+    genMaC("Requirements: Code has no external dependencies and compiles as per requrements.");
+    genMaC("Requirements: Output closely follows the required output.");
+    genMaC("Requirements: Code clearly generates the output shown.");
+
+
+    genTopic("OOP");
+    genTopic ("Clean Code");
+    genMiC("Clean Code: You have an excessive number of unnecessary comments. Focus on using naming to aid readability and on writing self-documenting code. ");
+    genMiC("Clean Code: You have too much unnecessary state. Create fewer intermediate variables. This isn't for performance reasons, rather, it's for readability and reliability reasons. ");
+    genMiC("Clean Code: Method names should clearly describe they do, field names should clearly describe what they are.");
+    
+    genTopic("Formatting issues");
+    genMiC("Formatting: Your formatting needs some work. Please make your code more readable.");
+    genMiC("Formatting: Before submission you should remove (meta) comments to yourself that you use to help you write the code. It's fine to leave in (meta) comments directed at the instructional staff. ");
+    genMiC("Formatting: You should remove unwanted code prior to submission.");
+    genMiC("Formatting: Remove debug code prior to submission.");
+    genMiC("Formatting: Use more whitespace for increased readability.");
+
+    genTopic("Directions");
+    genMaC("Directions: Next time follow the directions more closely please.");
+
+    genTopic("Submission Issues");
+    genNoC("Note: Don't worry about file renaming, I know that it does that.");
+    genMaC("Submission: Your submission is missing either separate code or a proper writeup.")
+
+    genTopic("General Feedback");
+    genNoC("Note: Really nice job!");
+
+
+    //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    // Generate the buttons and textbox
+    //
+    genHR();
+    genBR();
+    genCopyButton();    
+    genBR();
+    genBR();
+    genCommentBox();
+    genBR();
+    genClearButton();
+    genHR();
+};
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+//`````````````````````````````````````````````````````````````````````````````
+// gen functions
+//
+function genCopyButton(){
+    genButton("copyAll",  "control", "Copy all comments", "copyAll");
+    genCheckBox("copytocb", "control", "Copy to Clipboard");
+};
+
+function genClearButton(){genButton("clearAll", "control", "Clear all comments", "clearAll");};
+
+function genTitle(title) {genH2(title); genHR();};
+function genTopic(topic){genBR();genBR();genH3(topic);};
+function genBR(){document.body.appendChild(document.createElement('br'));};
+function genHR(){document.body.appendChild(document.createElement('hr'));};
+
+function genH(n,text){
+    var h = document.createElement('h'+n);
+    h.appendChild(document.createTextNode(text));
+    document.body.appendChild(h);
+};
+
+function genH1(text){genH(1,text);};
+function genH2(text){genH(2,text);};
+function genH3(text){genH(3,text);};
+function genH4(text){genH(4,text);};
+
+var idCount=0;
+function genMaC(labelText){createCriterion("M"+idCount++, "Mcriteria", labelText);};
+function genMiC(labelText){createCriterion("m"+idCount++, "mcriteria", labelText);};
+function genNoC(labelText){createCriterion("n"+idCount++, "ncriteria", labelText);};
+
+//`````````````````````````````````````````````````````````````````````````````
+function genCommentBox(){
+    const cmtForm           = document.createElement('form');
+    const cmtTextBox        = document.createElement('textarea');
+    cmtTextBox.id           = "commentBox";
+    cmtTextBox.rows         = 20;
+    cmtTextBox.cols         = 80;
+    cmtTextBox.name         = "text";
+    cmtTextBox.placeholder  = "Select comments, press the copy button, and then add your own";
+    cmtForm.appendChild(cmtTextBox);
+    document.body.appendChild(cmtForm);
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function genButton(id,name,text,onclick){
+    const btn = document.createElement('button');
+    btn.id          = id;
+    btn.name        = name;
+    btn.innerHTML   = text;
+    btn.setAttribute("onclick", "javascript:"+ onclick +"();");//     = onclick;
+    document.body.appendChild(btn);
+} 
+//`````````````````````````````````````````````````````````````````````````````
+function createCriterion(id, name, labelText){    
+    const label         = document.createElement("label");
+    const checkbox      = document.createElement("input");
+    checkbox.type       = "checkbox";
+    checkbox.id         = id;
+    checkbox.name       = name;
+    checkbox.value      = labelText;
+    const textContent = document.createTextNode(labelText);
+    label.appendChild(checkbox);
+    label.appendChild(textContent);
+    document.body.appendChild(document.createElement('br'));
+    document.body.appendChild(label);
+};
+
+function genCheckBox(id, name, labelText){
+    const label         = document.createElement("label");
+    const checkbox      = document.createElement("input");
+    checkbox.type       = "checkbox";
+    checkbox.id         = id;
+    checkbox.name       = name;
+    checkbox.value      = labelText;
+    const textContent = document.createTextNode(labelText);
+    label.appendChild(checkbox);
+    label.appendChild(textContent);
+    document.body.appendChild(label);
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function clearAll(){
+    check(false);
+    document.getElementById("commentBox").value = "";
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function addComment(comment){
+    const cmtBox = document.getElementById("commentBox");
+    cmtBox.value = cmtBox.value + comment;            
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function copyAllForSelector(cbs){
+    const cmtBox = document.getElementById("commentBox");
+    cbs.forEach((cb) => {
+        if(cb.checked){
+            cmtBox.value = cmtBox.value + cb.value + "\n";
+        }
+    })   
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function queryCountForSelector(sel){
+    var count=0;
+    sel.forEach((cb) => {
+        if(cb.checked){
+            count++;
+        }
+    })
+    //alert(count);
+    return count;
+}
+
+function pluralMe(text, n){
+    return n==1 ? text : text+"s";
+}
+//`````````````````````````````````````````````````````````````````````````````
+function copyAll(){
+    document.getElementById("commentBox").value = "";
+    const maSelector = document.querySelectorAll('input[name="Mcriteria"]')
+    const miSelector = document.querySelectorAll('input[name="mcriteria"]');
+    const noSelector = document.querySelectorAll('input[name="ncriteria"]');
+    const maIssues = queryCountForSelector(maSelector);
+    const miIssues = queryCountForSelector(miSelector);
+    const noIssues = queryCountForSelector(noSelector);
+
+    if(maIssues >0 || miIssues>0){
+        addComment("\nYour submission had " + 
+            (maIssues==0 ? "no": maIssues) + " major " + pluralMe("issue",maIssues) + " and " + 
+            (miIssues==0 ? "no" : miIssues) + " minor " + pluralMe("issue",miIssues) + ", details below.\n");
+    }
+    
+    if(maIssues>0){
+        addComment("\nYour submission had the following major " + pluralMe("issue",maIssues) + ":\n");
+        addComment("------------------------------------------\n");
+        copyAllForSelector(maSelector);
+        addComment("\n");
+    }
+
+    if(miIssues){
+        addComment("\nYour submission had the following minor " + pluralMe("issue",miIssues) + ":\n");
+        addComment("-----------------------------------------------\n");
+        copyAllForSelector(miSelector);
+    }
+
+    if(noIssues){
+        addComment("\nNotes:\n");
+        addComment("-----------------------------------------------\n");
+        copyAllForSelector(noSelector);
+    }
+    const clipCb = document.getElementById("copytocb");
+    const cmtBox = document.getElementById("commentBox");
+    if(clipCb.checked){
+        navigator.clipboard.writeText(cmtBox.value);
+    }
+};
+
+//`````````````````````````````````````````````````````````````````````````````
+function checkForSelector(checked=true, cbs){
+    cbs.forEach((cb) => {
+        cb.checked = checked;
+    })   
+}
+
+//`````````````````````````````````````````````````````````````````````````````
+function check(checked = true) {
+    checkForSelector(checked,document.querySelectorAll('input[name="mcriteria"]'));
+    checkForSelector(checked,document.querySelectorAll('input[name="Mcriteria"]'));
+    checkForSelector(checked,document.querySelectorAll('input[name="ncriteria"]'));
+};
+
+</script>
