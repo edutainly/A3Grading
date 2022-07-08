@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8"/>
+
+    <style>
+
+        h1{ padding: 0; margin: 0;}
+
+        h2{ padding: 0; margin: 0;}
+
+        h3{ padding: 0; margin: 0;}
+
+        h4{ padding: 0; margin: 0;}
+
+    </style>
+
+</head>
+
+<body onload="genDoc()"><script>
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// construct document
+
+//
+
+function genDoc(){
+
+    genTitle("Grading Checklist for A3-Checkin");
+
+    
+
+    
+
+    //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+    // set the total points for the assignment
+
+    //setTotalPoints(18);
+
+
+
+    //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+    // topics and criterion follow
+
+    //
+
+    genTopic("Oeverall Formatting and Writeup");
+
+    genHR();
+
+    genDeD("Writeup does not show name and last four at the top of the pdf as required", "HW", 1);
+
+    genBR();
+
+    genDeD("One or more images contain a dotted background indicating that the image was not properly exported as demonstrated in the Logisim video.", "HW", 1);
+
+
+
+    genBR();
+
+    genTopic("Problem 1")
+
+    genHR();
+
+    genRubric("P1",6, "Half Adder", "Correct schematic/solution included in writeup", 
+
+                                    "Schematic has some problems / is not fully correct", 
+
+                                    "Correct (or almost correct) schematic is included as .circ file but is not included in writeup as required");
+
+    genTopic("Deductions")
+
+    genDeD("Problem does not contain a problem description as required","P1", 1);
+
+    genDeD("Problem does not include a logisim .circ file as required","P1", 1);
+
+
+
+
+
+    genBR();
+
+    genTopic("Problem 2")
+
+    genHR();
+
+    genRubric("P2",6, "Full Adder", "Correct schematic/solution included in writeup", 
+
+                                    "Schematic has some problems / is not fully correct", 
+
+                                    "Correct (or almost correct) schematic is included as .circ file but is not included in writeup as required");
+
+    genTopic("Deductions")
+
+    genDeD("Problem does not contain a problem description as required","P2", 1);
+
+    genDeD("Problem does not include a logisim .circ file as required","P2", 1);
+
+
+
+    genBR();
+
+    genTopic("Problem 3")
+
+    genHR();
+
+    genRubric("P3",6, "Exercise 2.35",  "Correct schematic/solution included in writeup", 
+
+                                        "Schematic has some problems / is not fully correct", 
+
+                                        "Correct (or almost correct) schematic is included as .circ file but is not included in writeup as required");
+
+    genTopic("Deductions")
+
+    genDeD("Problem does not contain a problem description as required","P3", 1);
+
+    genDeD("Problem does not include a logisim .circ file as required","P3", 1);
+
+
+
+
+
+    genBR();
+
+    genTopic("General Feedback");
+
+    genHR();
+
+    genNoC("Note: Really nice job!");
+
+    genNoC("Note: Your submission had some problems, come talk to me about it in office hours.");
+
+
+
+
+
+    /*
+
+    genMaC("OOP: Please read the prompt carefully, watch the code-along videos. and adapt your style to a proper object oriented approach.");
+
+    genMiC("OOP: Too many conditionals in places. Try to think more in terms of function.");
+
+    genMiC("OOP: You have more getters than are necesasry, focus more on object behavior.");
+
+    genMaC("OOP: Do not model plural objects, e.g., Fires or Buildings, as a singular object, e.g. Fire or Building, and then use procedural code to determine which. This is a key violation of OOP principles.")
+
+    genMiC("OOP: You ignored some key requirements of the assignment. You must have private class variables even if you are only using getters to access them.");
+
+    genMaC("OOP: You ignored some key requirements of the assignment. You must have private class variables. This a pretty significant violation of the project spec, given that some of your class variables are not private and you are using them in a non-private way in several places.");
+
+    genMaC("OOP: You have excessive setters.");
+
+    genMaC("OOP: Your code somewhat resembles Fortran in Java. Encapsulate object properties and behavior inside of the objects.");
+
+    genMaC("OOP: You have too much behavior in your controller, e.g., GameWorld that should be distributed to other objects.");
+
+    genMaC("OOP: Instead of querying an object's properties via a getter, embed the behavior in the object.");
+
+    genMaC("OOP: The Helicopter does not need an ArrayList of all Fire objects. You have unnecessarily coupled the Helicopter with the collection of Fires.");
+
+
+
+    genTopic("HornetsHFD Specific");
+
+    genMaC("HornetsHFD: You should not nest the non-hierarchical GameObject classes.")
+
+    genMaC("HornetsHFD: Helicopter should manage its own speed and or water levels. These are behaviors of the helicopter");
+
+    genMaC("HorentsHFD: You are required to iterate over a fires collection and not use individual fire variables throughout GameWorld");
+
+    genMiC("HornetsHFD: Locations should be modeled with a Point.");
+
+    genMaC("HornetsHFD: No Exit Dialog");
+
+
+
+    genTopic("A3 Specific");
+
+    genMaC("Progress: Your A2 should be much farther along for where we are in the semester.");
+
+
+
+    genTopic ("Clean Code");
+
+    genMaC("Clean Code: You have an excessive number of unnecessary comments. Focus on using naming to aid readability and on writing self-documenting code. ");
+
+    genMaC("Clean Code: You have too much unnecessary state. Create fewer intermediate variables. This isn't for performance reasons, rather, it's for readability and reliability reasons. ");
+
+    genMaC("Clean Code: Method names should clearly describe they do, field names should clearly describe what they are.");
+
+    
+
+    genTopic("Java Style");
+
+    genMiC("Java Style: Variable names do not begin with upper case letters.");
+
+
+
+    genTopic("Formatting issues");
+
+    genMaC("Formatting: 80 column limit please!");
+
+    genMaC("Formatting: Your formatting needs a lot of work. Please make your code more readable.");
+
+    genMiC("Formatting: You should not submit copy-pasted code from my examples to your code check-in.");
+
+    genMiC("Formatting: Before submission you should remove (meta) comments to yourself that you use to help you write the code. It's fine to leave in (meta) comments directed at the instructional staff. ");
+
+    genMiC("Formatting: You should remove unwanted code prior to submission.");
+
+    genMiC("Formatting: Remove debug code prior to submission.");
+
+    genMiC("Formatting: Use more whitespace for increased readability.");
+
+
+
+    genTopic("Directions");
+
+    genMaC("Directions: Next time follow the directions more closely please.");
+
+
+
+    genTopic("Progress");
+
+    genMiC("Progress: You were close to the line, you should have more done after two weeks into the module.");
+
+    genMiC("Progress: You code is fine, such as it is, my advice is to spend more time writing it.");
+
+    genMaC("Progress: The code is seriously incomplete. I gave you one grade up from the Low Marks for some effort. However, you will need to do more work going forward to earn a passing grade on the code portion of the assignment.");
+
+    genMaC("Progress: You must get you project to a working state before submission. If your code doesn't run at all I can't really give you a passing grade.");
+
+
+
+    genTopic("Submission Issues");
+
+    genNoC("Note: Don't worry about file renaming, I know that it does that.");
+
+    genMaC("Submission: Your video was not viewable or did not contain a proper demo.")
+
+
+
+    genTopic("General Feedback");
+
+    genNoC("Note: Really nice job!");
+
+    */
+
+
+
+    //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+    // Generate the buttons and textbox
+
+    //
+
+    genHR();
+
+    genBR();
+
+    genComputePointsButton();    
+
+    genBR();
+
+    genBR();
+
+    genCommentBox();
+
+    genBR();
+
+    genClearButton();
+
+    genHR();
+
+};
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+// gen functions
+
+//
+
+function genCopyButton(){
+
+    genButton("copyAll",  "control", "Copy all comments", "copyAll");
+
+    genCheckBox("copytocb", "control", "Copy to Clipboard");
+
+};
+
+
+
+function genComputePointsButton(){
+
+    genButton("computePointsForAll",  "control", "Copy all comments", "computePointsForAll");
+
+    genCheckBox("copytocb", "control", "Copy to Clipboard");
+
+};
+
+
+
+
+
+
+
+function genClearButton(){genButton("clearAll", "control", "Clear all comments", "clearAll");};
+
+
+
+function genTitle(title) {genH2(title); genHR();};
+
+function genTopic(topic){genBR();genBR();genH3(topic);};
+
+function genBR(){document.body.appendChild(document.createElement('br'));};
+
+function genHR(){document.body.appendChild(document.createElement('hr'));};
+
+
+
+function genH(n,text){
+
+    var h = document.createElement('h'+n);
+
+    h.appendChild(document.createTextNode(text));
+
+    document.body.appendChild(h);
+
+};
+
+
+
+function genH1(text){genH(1,text);};
+
+function genH2(text){genH(2,text);};
+
+function genH3(text){genH(3,text);};
+
+function genH4(text){genH(4,text);};
+
+
+
+var idCount=0;
+
+function genMaC(labelText){createCriterion("M"+idCount++, "Mcriteria", labelText);};
+
+function genMiC(labelText){createCriterion("m"+idCount++, "mcriteria", labelText);};
+
+function genNoC(labelText){createCriterion("n"+idCount++, "ncriteria", labelText);};
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+// genDeD : Generates a deduction related to question qNum with value dPoints
+
+//
+
+function genDeD(labelText, qNum, dPoints){
+
+    //createCriterion(qNum+idCount++, "pdcriteria", labelText);    
+
+    createCriterion(qNum+idCount++, "D"+qNum, "Deduction :: " + labelText);    
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+// genRubric generates a rubric item
+
+//
+
+// qNum     : is the question number in text
+
+// qPoints  : is the integer number of points for the question
+
+// qTitle   : is the question title
+
+// cA       : is the text for the A choice (100%)
+
+// cC       : is the text for the C choice (75%)
+
+// cF       : is the text for the F choice (50%)
+
+// cZ       : is the text for the Z choice (0%)
+
+//
+
+const qPointsMap = new Map();
+
+
+
+function genRubric(qNum, qPoints, qTitle, cA, cC,cF){
+
+    // generate the header
+
+    qHeader = qNum + " :: " + qTitle + " " + "["+ qPoints + " Points]";
+
+    genTopic(qHeader);
+
+    genRubricItem(qNum,qPoints,cA,cC,cF);
+
+    qPointsMap.set(qNum,qPoints);
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+// genDeduct generates a deduction for problem qNum
+
+//
+
+function genDeduct(qNum, qPoints, qTitle){
+
+
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function genRubricItem(qNum, qPoints,cA,cC, cF){
+
+    cZ = "Solution is missing, has too little to grade, or is completely incorrect";    
+
+    
+
+    //cZ = "No Marks";
+
+
+
+    createRadioButton(qNum+"-cA", qNum, "Full Marks :: " + cA);
+
+
+
+    if(cC != "N/A")
+
+        createRadioButton(qNum+"-cC", qNum, "Some Marks :: " + cC);
+
+
+
+    if(cF != "N/A")        
+
+        createRadioButton(qNum+"-cF", qNum, "Low Marks :: " + cF);
+
+
+
+    createRadioButton(qNum+"-cZ", qNum, cZ);
+
+}   
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+// for a radio button the name is the group name so we call it multiple times
+
+// with the same group name
+
+//
+
+function createRadioButton(id, name, labelText){    
+
+    const label         = document.createElement("label");
+
+    const radioButton   = document.createElement("input");
+
+    radioButton.type    = "radio";
+
+    radioButton.id      = id;
+
+    radioButton.name    = name;
+
+    radioButton.value   = labelText;
+
+    const textContent = document.createTextNode(labelText);
+
+    label.appendChild(radioButton);
+
+    label.appendChild(textContent);
+
+    document.body.appendChild(document.createElement('br'));
+
+    document.body.appendChild(label);
+
+};
+
+
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function genCommentBox(){
+
+    const cmtForm           = document.createElement('form');
+
+    const cmtTextBox        = document.createElement('textarea');
+
+    cmtTextBox.id           = "commentBox";
+
+    cmtTextBox.rows         = 20;
+
+    cmtTextBox.cols         = 80;
+
+    cmtTextBox.name         = "text";
+
+    cmtTextBox.placeholder  = "Select comments, press the copy button, and then add your own";
+
+    cmtForm.appendChild(cmtTextBox);
+
+    document.body.appendChild(cmtForm);
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function genButton(id,name,text,onclick){
+
+    const btn = document.createElement('button');
+
+    btn.id          = id;
+
+    btn.name        = name;
+
+    btn.innerHTML   = text;
+
+    btn.setAttribute("onclick", "javascript:"+ onclick +"();");//     = onclick;
+
+    document.body.appendChild(btn);
+
+} 
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function createCriterion(id, name, labelText){    
+
+    const label         = document.createElement("label");
+
+    const checkbox      = document.createElement("input");
+
+    checkbox.type       = "checkbox";
+
+    checkbox.id         = id;
+
+    checkbox.name       = name;
+
+    checkbox.value      = labelText;
+
+    const textContent = document.createTextNode(labelText);
+
+    label.appendChild(checkbox);
+
+    label.appendChild(textContent);
+
+    document.body.appendChild(document.createElement('br'));
+
+    document.body.appendChild(label);
+
+};
+
+
+
+function genCheckBox(id, name, labelText){
+
+    const label         = document.createElement("label");
+
+    const checkbox      = document.createElement("input");
+
+    checkbox.type       = "checkbox";
+
+    checkbox.id         = id;
+
+    checkbox.name       = name;
+
+    checkbox.value      = labelText;
+
+    const textContent = document.createTextNode(labelText);
+
+    label.appendChild(checkbox);
+
+    label.appendChild(textContent);
+
+    document.body.appendChild(label);
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function clearAll(){
+
+    check(false);
+
+    document.getElementById("commentBox").value = "";
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function addComment(comment){
+
+    const cmtBox = document.getElementById("commentBox");
+
+    cmtBox.value = cmtBox.value + comment;            
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function copyAllForSelector(cbs){
+
+    const cmtBox = document.getElementById("commentBox");
+
+    cbs.forEach((cb) => {
+
+        if(cb.checked){
+
+            cmtBox.value = cmtBox.value + cb.value + "\n";
+
+        }
+
+    })   
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function queryCountForSelector(sel){
+
+    var count=0;
+
+    sel.forEach((cb) => {
+
+        if(cb.checked){
+
+            count++;
+
+        }
+
+    })
+
+    //alert(count);
+
+    return count;
+
+}
+
+
+
+function pluralMe(text, n){
+
+    return n==1 ? text : text+"s";
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function copyAll(){
+
+    document.getElementById("commentBox").value = "";
+
+    const maSelector = document.querySelectorAll('input[name="Mcriteria"]')
+
+    const miSelector = document.querySelectorAll('input[name="mcriteria"]');
+
+    const noSelector = document.querySelectorAll('input[name="ncriteria"]');
+
+    const maIssues = queryCountForSelector(maSelector);
+
+    const miIssues = queryCountForSelector(miSelector);
+
+    const noIssues = queryCountForSelector(noSelector);
+
+
+
+    if(maIssues >0 || miIssues>0){
+
+        addComment("\nYour submission had " + 
+
+            (maIssues==0 ? "no": maIssues) + " major " + pluralMe("issue",maIssues) + " and " + 
+
+            (miIssues==0 ? "no" : miIssues) + " minor " + pluralMe("issue",miIssues) + ", details below.\n");
+
+    }
+
+    
+
+    if(maIssues>0){
+
+        addComment("\nYour submission had the following major " + pluralMe("issue",maIssues) + ":\n");
+
+        addComment("------------------------------------------\n");
+
+        copyAllForSelector(maSelector);
+
+        addComment("\n");
+
+    }
+
+
+
+    if(miIssues){
+
+        addComment("\nYour submission had the following minor " + pluralMe("issue",miIssues) + ":\n");
+
+        addComment("-----------------------------------------------\n");
+
+        copyAllForSelector(miSelector);
+
+    }
+
+
+
+    if(noIssues){
+
+        addComment("\nNotes:\n");
+
+        addComment("-----------------------------------------------\n");
+
+        copyAllForSelector(noSelector);
+
+    }
+
+    const clipCb = document.getElementById("copytocb");
+
+    const cmtBox = document.getElementById("commentBox");
+
+    if(clipCb.checked){
+
+        navigator.clipboard.writeText(cmtBox.value);
+
+    }
+
+};
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function computePointsForAll(){
+
+    document.getElementById("commentBox").value = "";
+
+
+
+    //`````````````````````````````````````````
+
+    // copy all details of exam rubric points
+
+    //
+
+    pRatios = new Map();
+
+    pRatios.set("cA",1);
+
+    pRatios.set("cC",0.75);
+
+    pRatios.set("cF",0.5);
+
+    pRatios.set("cZ",0);
+
+
+
+
+
+    addComment("Grade and comments for Logisim portion of the assignment\n");
+
+    //`````````````````````````````````````````
+
+    // this is what generates the score for qNum. 
+
+    // We need to modify this to subtract any 
+
+    // deductions
+
+    // 
+
+    var totalPoints=0;
+
+    qPointsMap.forEach((points, qNum, map) => {
+
+        var answer = document.querySelector( "input[name="+ CSS.escape(qNum)+ "]:checked"); 
+
+        if(answer != null){
+
+            var grade = answer.id.split("-")[1];
+
+            var points = pRatios.get(grade) * qPointsMap.get(qNum);
+
+            addComment("------------------------------------------\n");
+
+            addComment("Base Score => " + qNum + " :: " + answer.value +"\n");
+
+            
+
+            // now we want to find the deductions for this problem
+
+            //
+
+            pdSelector = document.querySelectorAll("input[name=D" + CSS.escape(qNum) + "]");
+
+            pdIssues = queryCountForSelector(pdSelector);
+
+            copyAllForSelector(pdSelector);
+
+
+
+            // Now total up all of the points
+
+            //
+
+            addComment("\nBase Points" + " :: " + points + " out of " + qPointsMap.get(qNum)+ "\n");
+
+            addComment("Deductions" + " :: " + pdIssues + "\n");
+
+            pPoints = Math.max(0,(points-pdIssues));
+
+            addComment("Final Score for " + qNum + " :: " + pPoints + "\n\n");
+
+
+
+            totalPoints += pPoints;
+
+
+
+        }
+
+        else
+
+            addComment("\nERROR :: " + qNum + " not graded!\n");
+
+    })
+
+
+
+    adSelector = document.querySelectorAll('input[name="DHW"]');
+
+    adIssues = queryCountForSelector(adSelector);
+
+    if(adIssues>0){
+
+        addComment("------------------------------------------\n");
+
+        addComment("Additional Deductions\n");
+
+        copyAllForSelector(adSelector);
+
+    }
+
+    addComment("\n\n------------------------------------------\n");
+
+    addComment("Total Points for this portion of the assignment :: " + Math.max(0,(totalPoints-adIssues)));
+
+    addComment("\n------------------------------------------\n");
+
+    addComment("\n");
+
+
+
+    //`````````````````````````````````````````
+
+    // copy all details of comments
+
+    const maSelector = document.querySelectorAll('input[name="Mcriteria"]')
+
+    const miSelector = document.querySelectorAll('input[name="mcriteria"]');
+
+    const noSelector = document.querySelectorAll('input[name="ncriteria"]');
+
+    const maIssues = queryCountForSelector(maSelector);
+
+    const miIssues = queryCountForSelector(miSelector);
+
+    const noIssues = queryCountForSelector(noSelector);
+
+
+
+    if(maIssues >0 || miIssues>0){
+
+        addComment("\nYour submission had " + 
+
+            (maIssues==0 ? "no": maIssues) + " major " + pluralMe("issue",maIssues) + " and " + 
+
+            (miIssues==0 ? "no" : miIssues) + " minor " + pluralMe("issue",miIssues) + ", details below.\n");
+
+    }
+
+    
+
+    if(maIssues>0){
+
+        addComment("\nYour submission had the following major " + pluralMe("issue",maIssues) + ":\n");
+
+        addComment("------------------------------------------\n");
+
+        copyAllForSelector(maSelector);
+
+        addComment("\n");
+
+    }
+
+
+
+    if(miIssues){
+
+        addComment("\nYour submission had the following minor " + pluralMe("issue",miIssues) + ":\n");
+
+        addComment("-----------------------------------------------\n");
+
+        copyAllForSelector(miSelector);
+
+    }
+
+
+
+    if(noIssues){
+
+        addComment("\nNotes:\n");
+
+        addComment("-----------------------------------------------\n");
+
+        copyAllForSelector(noSelector);
+
+    }
+
+
+
+
+
+    const clipCb = document.getElementById("copytocb");
+
+    const cmtBox = document.getElementById("commentBox");
+
+    if(clipCb.checked){
+
+        navigator.clipboard.writeText(cmtBox.value);
+
+    }
+
+};
+
+
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function checkForSelector(checked=true, cbs){
+
+    cbs.forEach((cb) => {
+
+        cb.checked = checked;
+
+    })   
+
+}
+
+
+
+//`````````````````````````````````````````````````````````````````````````````
+
+function check(checked = true) {
+
+    checkForSelector(checked,document.querySelectorAll('input[name="mcriteria"]'));
+
+    checkForSelector(checked,document.querySelectorAll('input[name="Mcriteria"]'));
+
+    checkForSelector(checked,document.querySelectorAll('input[name="ncriteria"]'));
+
+};
+
+
+
+</script></body></html>
+
